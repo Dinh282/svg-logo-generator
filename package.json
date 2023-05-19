@@ -1,0 +1,19 @@
+{
+  "name": "svg-logo-generator",
+  "version": "1.0.0",
+  "description": "A Node.js command-line app that generates a logo and saves it as a SVG file based on user input.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.4"
+  }
+}
