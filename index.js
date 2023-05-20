@@ -1,5 +1,5 @@
-//packages needed for this application. we using import from instead of require
-//to comply with ES 6 since our version of inquirer is later than 8.2.4
+//packages needed for this application. we're using import and from instead of require
+//to comply with ES 6 since our version of inquirer is greater than 8.2.4
 import  inquirer  from 'inquirer';
 import  fs  from 'fs';
 import  { Circle, Triangle, Square } from './lib/shapes.js';
@@ -10,7 +10,7 @@ import colorNames from 'color-name';
 const validColors = Object.keys(colorNames);
 
 //this function takes in the array of validColors and the color value that inquirer obtains from 
-//the user to check of what the user entered exists in the array.
+//the user to check if what the user entered exists in the array.
 function checkColor (validColors, color) {
 
         const colorRegEx = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
@@ -24,6 +24,7 @@ function checkColor (validColors, color) {
         }
 }
 
+//prompt() method of inquirer is called to retrieve data from user.
  inquirer
         .prompt([
           {
@@ -50,9 +51,9 @@ function checkColor (validColors, color) {
             message: 'Enter a color name or Hexadecimal color code for the shape color.',
           },
         ])
-        //answers is parameter to the => function that we obtain from inquirer.prompt().
+        //answers is the parameter to the => function that we obtain from inquirer.prompt().
         .then((answers) => {
-            //we extract the properties from answer objectand assign them to the variables
+            //we extract the properties from answers object and assign them to the variables
             //text, textColor, shape, shapeColor using destructuring syntax.
             const {text, textColor, shape, shapeColor} = answers;
             
