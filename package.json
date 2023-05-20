@@ -10,11 +10,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "color-name": "^2.0.0",
-    "inquirer": "^9.2.4"
+    "inquirer": "8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
