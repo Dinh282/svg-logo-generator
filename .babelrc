@@ -1,0 +1,7 @@
+//since jest by default doesn't support ES6 module syntax, we need to configure Jest to handle ES^
+//using Babel to transform the code. this file is to configure Babel. 
+
+{
+    "presets": ["@babel/preset-env"]
+}
+  
