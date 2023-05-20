@@ -24,7 +24,6 @@ function checkColor (validColors, color) {
         }
 }
 
-
  inquirer
         .prompt([
           {
@@ -56,10 +55,11 @@ function checkColor (validColors, color) {
             //we extract the properties from answer objectand assign them to the variables
             //text, textColor, shape, shapeColor using destructuring syntax.
             const {text, textColor, shape, shapeColor} = answers;
-            //we instantiate CreateLogo(with the variables as arguments) and call the createLogo() method
-            //and with whatever that is returned from createLogo(), we are saving to variabel content.
+            
+            // we declare variable logo to assign the instance of specific shape based on user selection for shape.
             var logo;
 
+            //switch statement to checks value of shape and then chooses the correct class to instantiate.
             switch (shape) {
                 case 'circle':
                     logo = new Circle(text, textColor, shapeColor);
@@ -74,6 +74,8 @@ function checkColor (validColors, color) {
                     throw new Error('Not a valid shape!')
             }
 
+            // once the shape instance is created, the craeteLogo() method is called on the logo object. 
+            // the createLogo() would return a string that is written to the svg file.
             const content = logo.createLogo();
 
             // fs.promises.writeFile() method is used to generate the svg file. we pass in svg file name,
