@@ -28,18 +28,27 @@ import  CreateLogo from './lib/shapes.js';
             message: 'Enter a shape color',
           },
         ])
+        //answers is parameter to the => function that we obtain from inquirer.prompt().
         .then((answers) => {
+            //we destructure to extract the properties from answer object and assign them to the variables
+            //text, textColor, shape, shapeColor
             const {text, textColor, shape, shapeColor} = answers;
+            //we instantiate CreateLogo(with the variables as arguments) and call the createLogo() method
+            //and whatever is returned from createLogo() we are saving to variabel content.
             const content =  new CreateLogo(text, textColor, shape, shapeColor).createLogo() 
+            // fs.promises.writeFile() method is used to generate the svg file. we pass in svg file name,
+            // and the data to be written (content).
            return fs.promises.writeFile(
             './examples/logo.svg',
             content
           );
         })
+        //we log this to let user know that the svg file was generated successfully.
         .then(() => console.log('Generated logo.svg'))
+        //error handling. prints out "Oops. Something went wrong." and the error.
         .catch((err) => {
-          console.log(err);
           console.log('Oops. Something went wrong.');
+          console.log(err);
         });
     
   
