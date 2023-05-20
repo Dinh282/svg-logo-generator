@@ -3,18 +3,34 @@
 import  inquirer  from 'inquirer';
 import  fs  from 'fs';
 import  CreateLogo from './lib/shapes.js';
+import colorNames from 'color-name';
+// import colorNames from './node_modules/color-name-list/dist/colornames.json'
+
+const validColors = Object.keys(colorNames);
+
+function checkColor (validColors, color) {
+        const colorRegEx = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+
+        if(colorRegEx.test(color) || validColors.includes(color.toLowerCase())) {
+            return true;
+        }else {
+            return 'Enter a valid color name or a hexadecimal color code.';
+        }
+}
+
 
  inquirer
         .prompt([
           {
             validate: (str) => str.length <=3, 
             name: 'text',
-            message: 'Enter text fr the logo. (Must not b more than 3 characters)',
+            message: 'Enter text for the logo. (Must not b more than 3 characters.)',
           },
           {
-            type: 'input',
+            validate: (color) => checkColor(validColors, color),
+            // type: 'input',
             name: 'textColor',
-            message: 'Enter a text color.',
+            message: 'Enter the text color name or Hexadecimal color code.',
           },
           {
             type: 'list',
@@ -23,9 +39,10 @@ import  CreateLogo from './lib/shapes.js';
             choices: ['circle', 'triangle', 'square']
           },
           {
-            type: 'input',
+            validate: (color) => checkColor(validColors, color),
+            // type:'input',
             name: 'shapeColor',
-            message: 'Enter a shape color',
+            message: 'Enter a shape color.',
           },
         ])
         //answers is parameter to the => function that we obtain from inquirer.prompt().
@@ -51,6 +68,6 @@ import  CreateLogo from './lib/shapes.js';
           console.log(err);
         });
     
-  
+
    
   
