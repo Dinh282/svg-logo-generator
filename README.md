@@ -51,7 +51,13 @@ One of the challenges I faced while completing this project was that I used ES6 
 
 Video Demo of Application:
 
-LINK GOES HERE.
+
+
+
+
+https://github.com/Dinh282/svg-logo-generator/assets/112836220/780f3c05-4bb1-4622-8ebf-95f3f4cf047b
+
+
 
 
 
